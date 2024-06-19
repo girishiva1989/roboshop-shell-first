@@ -16,7 +16,7 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
 echo -e "\e[31m<<<<<<<<<Create Nginx Reverse Proxy Configuration>>>>>>>>\e[0m"
-cp roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp /home/centos/roboshop-shell-new/roboshop.conf /etc/nginx/default.d/roboshop.conf
 
 echo -e "\e[31m<<<<<<<<<Restart Nginx Service>>>>>>>>>\e[0m"
 systemctl restart nginx
