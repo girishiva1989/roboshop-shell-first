@@ -28,3 +28,12 @@ echo -e "\e[31m<<<<<<<<<Load and Start the service>>>>>>>>>\e[0m"
 systemctl daemon-reload
 systemctl enable user
 systemctl start user
+
+echo -e "\e[31m<<<<<<<<<Install mongodb-client>>>>>>>>>\e[0m"
+dnf install mongodb-org-shell -y
+
+echo -e "\e[31m<<<<<<<<<load the schema>>>>>>>>>\e[0m"
+mongo --host mongod-dev.gdevops89.online </app/schema/user.js
+
+echo -e "\e[31m<<<<<<<<<Restart Service>>>>>>>>>\e[0m"
+systemctl restart user
