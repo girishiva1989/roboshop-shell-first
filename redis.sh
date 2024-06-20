@@ -8,7 +8,7 @@ echo -e "\e[31m<<<<<<<<<Install Redis>>>>>>>>>\e[0m"
 dnf install redis -y
 
 echo -e "\e[31m<<<<<<<<<Update listen address from 127.0.0.1 to 0.0.0.0>>>>>>>>>\e[0m"
-sed -i -e "-s|127.0.0.1|0.0.0.0|g" /etc/redis.conf /etc/redis/redis.conf
+sed -i -e "s|127.0.0.1|0.0.0.0|g" /etc/redis.conf /etc/redis/redis.conf
 # Update listen address from 127.0.0.1 to 0.0.0.0 in /etc/redis.conf & /etc/redis/redis.conf
 
 echo -e "\e[31m<<<<<<<<<IInstall NodeJS>>>>>>>>>\e[0m"
