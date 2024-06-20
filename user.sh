@@ -8,9 +8,9 @@ dnf install nodejs -y
 echo -e "\e[31m<<<<<<<<<Add application User>>>>>>>>>\e[0m"
 useradd roboshop
 
-rm -rf /app
-echo -e "\e[31m<<<<<<<<<Setup an app directory>>>>>>>>>\e[0m"
 
+echo -e "\e[31m<<<<<<<<<Setup an app directory>>>>>>>>>\e[0m"
+rm -rf /app
 mkdir /app
 
 echo -e "\e[31m<<<<<<<<<Download the application code>>>>>>>>>\e[0m"
