@@ -9,6 +9,7 @@ echo -e "\e[31m<<<<<<<<<Add application User>>>>>>>>>\e[0m"
 useradd roboshop
 
 echo -e "\e[31m<<<<<<<<<Setup an app directory>>>>>>>>>\e[0m"
+rm -rf /app
 mkdir /app
 
 echo -e "\e[31m<<<<<<<<<Download the application code>>>>>>>>>\e[0m"
