@@ -1,7 +1,7 @@
 echo -e "\e[31m<<<<<<<<<List the modules and enable nodejs 18 version>>>>>>>>>\e[0m"
-#dnf module disable nodejs -y
-#dnf module enable nodejs:18 -y
-curl -sl https://rpm.nodesource.com/setup_lts.x | bash
+dnf module disable nodejs -y
+dnf module enable nodejs:18 -y
+#curl -sl https://rpm.nodesource.com/setup_lts.x | bash
 
 echo -e "\e[31m<<<<<<<<<Install NodeJS>>>>>>>>>\e[0m"
 dnf install nodejs -y
