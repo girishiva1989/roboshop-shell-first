@@ -23,7 +23,7 @@ npm install
 echo -e "\e[31m<<<<<<<<<Setup SystemD Cart Service>>>>>>>>>\e[0m"
 cp /home/centos/roboshop-shell-first/cart.service /etc/systemd/system/cart.service
 
-echo -e "\e[31m<<<<<<<<<List the modules and enable 18 version>>>>>>>>>\e[0m"
+echo -e "\e[31m<<<<<<<<<Load and Start the service>>>>>>>>>\e[0m"
 systemctl daemon-reload
 systemctl enable cart
 systemctl start cart
