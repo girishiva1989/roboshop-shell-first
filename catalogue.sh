@@ -1,5 +1,11 @@
-script_path=$(realpath $0)
+script=$(realpath $0)
+script_path=${dirname $script}
 source ${script_path}/common.sh
+
+echo script
+echo script_path
+
+exit
 
 
 echo -e "\e[31m<<<<<<<<<List the modules and enable 18 version>>>>>>>>>\e[0m"
