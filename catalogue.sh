@@ -1,5 +1,7 @@
 source common.sh
 
+exit
+
 echo -e "\e[31m<<<<<<<<<List the modules and enable 18 version>>>>>>>>>\e[0m"
 dnf module disable nodejs -y
 dnf module enable nodejs:18 -y
