@@ -1,5 +1,8 @@
+script_path=$(dirname $0)
+source ${script_path}/common.sh
+
 echo -e "\e[31m<<<<<<<<<Setup the MongoDB repo file>>>>>>>>>\e[0m"
-cp /home/centos/roboshop-shell-first/mongod.repo /etc/yum.repos.d/mongo.repo
+cp ${script_path}/mongod.repo /etc/yum.repos.d/mongo.repo
 
 echo -e "\e[31m<<<<<<<<<Install MongoDB>>>>>>>>>\e[0m"
 dnf install mongodb-org -y

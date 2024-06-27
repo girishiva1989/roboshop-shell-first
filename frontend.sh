@@ -1,3 +1,6 @@
+script_path=$(dirname $0)
+source ${script_path}/common.sh
+
 echo -e "\e[31m<<<<<<<<<Install nginx>>>>>>>>>\e[0m"
 dnf install nginx -y
 
@@ -16,7 +19,7 @@ cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
 echo -e "\e[31m<<<<<<<<<Create Nginx Reverse Proxy Configuration>>>>>>>>\e[0m"
-cp /home/centos/roboshop-shell-first/roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp ${script_path}/roboshop.conf /etc/nginx/default.d/roboshop.conf
 
 echo -e "\e[31m<<<<<<<<<Restart Nginx Service>>>>>>>>>\e[0m"
 systemctl restart nginx

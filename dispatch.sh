@@ -1,8 +1,11 @@
+script_path=$(dirname $0)
+source ${script_path}/common.sh
+
 echo -e "\e[31m<<<<<<<<<Install GoLang>>>>>>>>>\e[0m"
 dnf install golang -y
 
 echo -e "\e[31m<<<<<<<<<Add application User>>>>>>>>>\e[0m"
-useradd roboshop
+useradd ${add_user}
 
 echo -e "\e[31m<<<<<<<<<Setup app directory>>>>>>>>>\e[0m"
 rm -rf /app
@@ -19,7 +22,7 @@ go get
 go build
 
 echo -e "\e[31m<<<<<<<<<Setup SystemD Dispatch Service>>>>>>>>>\e[0m"
-cp /home/centos/roboshop-shell-first/dispatch.service /etc/systemd/system/dispatch.service
+cp ${script_path}/dispatch.service /etc/systemd/system/dispatch.service
 
 echo -e "\e[31m<<<<<<<<<Load and Start the service>>>>>>>>>\e[0m"
 systemctl daemon-reload

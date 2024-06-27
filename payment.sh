@@ -1,8 +1,11 @@
+script_path=$(dirname $0)
+source ${script_path}/common.sh
+
 echo -e "\e[31m<<<<<<<<<Install Python 3.6>>>>>>>>>\e[0m"
 dnf install python36 gcc python3-devel -y
 
 echo -e "\e[31m<<<<<<<<<Add application User>>>>>>>>>\e[0m"
-useradd roboshop
+useradd ${app_user}
 
 echo -e "\e[31m<<<<<<<<<Setup app directory>>>>>>>>>\e[0m"
 rm -rf /app
@@ -17,7 +20,7 @@ echo -e "\e[31m<<<<<<<<<Download the dependencies>>>>>>>>>\e[0m"
 pip3.6 install -r requirements.txt
 
 echo -e "\e[31m<<<<<<<<<Setup SystemD Payment Service>>>>>>>>>\e[0m"
-cp payment.service /etc/systemd/system/payment.service
+cp ${script_path}/payment.service /etc/systemd/system/payment.service
 
 echo -e "\e[31m<<<<<<<<<Load and Start the service>>>>>>>>>\e[0m"
 systemctl daemon-reload

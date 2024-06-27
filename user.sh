@@ -1,4 +1,6 @@
-echo -e "\e[31m<<<<<<<<<Enable nodejs 18 version>>>>>>>>>\e[0m"
+script_path=$(dirname $0)
+source ${script_path}/common.sh
+
 dnf module disable nodejs -y
 dnf module enable nodejs:18 -y
 
@@ -6,7 +8,7 @@ echo -e "\e[31m<<<<<<<<<Install NodeJS>>>>>>>>>\e[0m"
 dnf install nodejs -y
 
 echo -e "\e[31m<<<<<<<<<Add application User>>>>>>>>>\e[0m"
-useradd roboshop
+useradd ${app_user}
 
 
 echo -e "\e[31m<<<<<<<<<Setup an app directory>>>>>>>>>\e[0m"
@@ -22,7 +24,7 @@ echo -e "\e[31m<<<<<<<<<Download the dependencies>>>>>>>>>\e[0m"
 npm install
 
 echo -e "\e[31m<<<<<<<<<Setup SystemD User Service>>>>>>>>>\e[0m"
-cp /home/centos/roboshop-shell-first/user.service /etc/systemd/system/user.service
+cp ${script_path}/user.service /etc/systemd/system/user.service
 
 echo -e "\e[31m<<<<<<<<<Load and Start the service>>>>>>>>>\e[0m"
 systemctl daemon-reload
@@ -30,7 +32,7 @@ systemctl enable user
 systemctl start user
 
 echo -e "\e[31m<<<<<<<<<setup MongoDB repo>>>>>>>>>\e[0m"
-cp /home/centos/roboshop-shell-first/mongod.repo /etc/yum.repos.d/mongo.repo
+cp ${script_path}/mongod.repo /etc/yum.repos.d/mongo.repo
 
 echo -e "\e[31m<<<<<<<<<Install mongodb-client>>>>>>>>>\e[0m"
 dnf install mongodb-org-shell -y

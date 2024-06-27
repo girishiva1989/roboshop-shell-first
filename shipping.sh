@@ -1,8 +1,11 @@
+script_path=$(dirname $0)
+source ${script_path}/common.sh
+
 echo -e "\e[31m<<<<<<<<<Install Maven>>>>>>>>>\e[0m"
 dnf install maven -y
 
 echo -e "\e[31m<<<<<<<<<Add application User>>>>>>>>>\e[0m"
-useradd roboshop
+useradd ${add_user}
 
 echo -e "\e[31m<<<<<<<<<Setup app directory>>>>>>>>>\e[0m"
 rm -rf /app
@@ -18,7 +21,7 @@ mvn clean package
 mv target/shipping-1.0.jar shipping.jar
 
 echo -e "\e[31m<<<<<<<<<Setup SystemD Shipping Service>>>>>>>>>\e[0m"
-cp /home/centos/roboshop-shell-first/shipping.service /etc/systemd/system/shipping.service
+cp ${script_path}/shipping.service /etc/systemd/system/shipping.service
 
 echo -e "\e[31m<<<<<<<<<Load and Start the service>>>>>>>>>\e[0m"
 systemctl daemon-reload
