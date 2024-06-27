@@ -1,8 +1,6 @@
-source common.sh
+script_path=$(dirname $0)
+source ${script_path}/common.sh
 
-dirname $0
-
-exit
 
 echo -e "\e[31m<<<<<<<<<List the modules and enable 18 version>>>>>>>>>\e[0m"
 dnf module disable nodejs -y
@@ -27,7 +25,7 @@ echo -e "\e[31m<<<<<<<<<Download the dependencies>>>>>>>>>\e[0m"
 npm install
 
 echo -e "\e[31m<<<<<<<<<Setup SystemD Catalogue Service>>>>>>>>>\e[0m"
-cp /home/centos/roboshop-shell-first/catalogue.service /etc/systemd/system/catalogue.service
+cp ${script_path}/catalogue.service /etc/systemd/system/catalogue.service
 
 echo -e "\e[31m<<<<<<<<<Load and Start the service>>>>>>>>>\e[0m"
 systemctl daemon-reload
@@ -35,7 +33,7 @@ systemctl enable catalogue
 systemctl start catalogue
 
 echo -e "\e[31m<<<<<<<<<setup MongoDB repo>>>>>>>>>\e[0m"
-cp /home/centos/roboshop-shell-first/mongod.repo /etc/yum.repos.d/mongo.repo
+cp ${script_path}/mongod.repo /etc/yum.repos.d/mongo.repo
 
 echo -e "\e[31m<<<<<<<<<Install mongodb-client>>>>>>>>>\e[0m"
 dnf install mongodb-org-shell -y
