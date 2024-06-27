@@ -1,3 +1,5 @@
+source common.sh
+
 echo -e "\e[31m<<<<<<<<<List the modules and enable 18 version>>>>>>>>>\e[0m"
 dnf module disable nodejs -y
 dnf module enable nodejs:18 -y
@@ -6,7 +8,7 @@ echo -e "\e[31m<<<<<<<<<IInstall NodeJS>>>>>>>>>\e[0m"
 dnf install nodejs -y
 
 echo -e "\e[31m<<<<<<<<<Add application User to configure application>>>>>>>>\e[0m"
-useradd roboshop
+useradd ${app_user}
 
 echo -e "\e[31m<<<<<<<<<Setup an app directory>>>>>>>>>\e[0m"
 rm -rf /app
