@@ -8,7 +8,7 @@ echo -e "\e[31m<<<<<<<<<Install Maven>>>>>>>>>\e[0m"
 dnf install maven -y
 
 echo -e "\e[31m<<<<<<<<<Add application User>>>>>>>>>\e[0m"
-useradd ${add_user}
+useradd ${app_user}
 
 echo -e "\e[31m<<<<<<<<<Setup app directory>>>>>>>>>\e[0m"
 rm -rf /app
