@@ -7,7 +7,7 @@ mysql_user_password=$*
 dnf module disable mysql -y
 
 echo -e "\e[31m<<<<<<<<<Setup MySQL5.7 repo file>>>>>>>>>\e[0m"
-cp ${script_path}/home/centos/roboshop-shell-first}/mysql.repo /etc/yum.repos.d/mysql.repo
+cp ${script_path}/mysql.repo /etc/yum.repos.d/mysql.repo
 
 echo -e "\e[31m<<<<<<<<<Install MySQL Server>>>>>>>>>\e[0m"
 dnf install mysql-community-server -y
